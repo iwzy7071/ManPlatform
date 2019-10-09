@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Boooya - 404</title><!-- META SECTION -->
+<head><title>User Login</title><!-- META SECTION -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1"><!-- END META SECTION --><!-- CSS INCLUDE -->
     <link rel="stylesheet" href="../static/css/styles.css"><!-- EOF CSS INCLUDE --></head>
 <body><!-- APP WRAPPER -->
-<div class="app" style="height: 100%"><!-- START APP CONTAINER -->
-    <div class="app-container app-error-container">
-        <div class="app-error">
-            <div class="app-error-code">404</div>
-            <div class="app-error-message">Woooops... something has gone terribly wrong here</div>
-            <div class="app-error-button"><a href="index.html" class="btn btn-primary btn-lg btn-shadowed btn-rounded">Back
-                to home</a></div>
+<div class="app"><!-- START APP CONTAINER -->
+    <div class="app-container">
+        <div class="app-login-box">
+            <div class="app-login-box-user"><img src="../static/img/user/no-image.png" alt="John Doe"></div>
+            <div class="app-login-box-title">
+                <div class="title">登入你的账户</div>
+            </div>
+            <div class="app-login-box-container">
+                <form action="" method="POST" novalidate>
+                    <div class="form-group"><input type="text" class="form-control" name="login"
+                                                   placeholder="用户名"></div>
+                    <div class="form-group"><input type="password" class="form-control" name="password"
+                                                   placeholder="密码"></div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <div class="app-checkbox"><label><input type="checkbox" name="app-checkbox-1" value="0">
+                                    Remember me</label></div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <button class="btn btn-success btn-block">登入</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="app-login-box-footer">&copy; Group XI 2019. All rights reserved.</div>
         </div>
     </div><!-- END APP CONTAINER --></div><!-- END APP WRAPPER -->
 <div class="modal fade" id="modal-thanks" tabindex="-1" role="dialog">
@@ -21,7 +42,7 @@
                                                                                           class="icon-cross"></span>
         </button>
         <div class="modal-content">
-            <div class="modal-body"><p class="text-center margin-bottom-20"><img src="assets/images/smile.png"
+            <div class="modal-body"><p class="text-center margin-bottom-20"><img src="../static/assets/images/smile.png"
                                                                                  alt="Thank you" style="width: 100px">
             </p>
                 <h3 id="modal-thanks-heading"

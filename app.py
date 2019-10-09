@@ -1,12 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, session
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():
-    return
-
-
-if __name__ == '__main__':
-    app.run()
+app.secret_key = 'fba!u?%b*fa89ib%ab^21312/f'
