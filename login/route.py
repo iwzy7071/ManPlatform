@@ -2,25 +2,22 @@ from flask import render_template, redirect, url_for, request, escape
 from app import app, session
 import sqlite3
 from werkzeug.security import check_password_hash
-
+import os
 
 def get_database_cursor():
-    # Todo: the path of db may recity after uploaded to the server
     conn = sqlite3.connect("users.db")
+    print(os.system("pwd"))
     conn.isolation_level = None
     return conn.cursor()
 
 
-# FIXME: fetchone may return a list
 def get_correct_password(username):
     cursor = get_database_cursor()
     sql = "SELECT Password from User where name = '%s'" % username
     cursor.execute(sql)
-    print(sql)
     return cursor.fetchone()
 
 
-# FIXME: fetchone may return a list
 def get_user_type(username):
     cursor = get_database_cursor()
     sql = "SELECT Type from User where name = '%s'" % username
@@ -49,18 +46,19 @@ def redirect_page_type(type:str):
 def login():
     if 'name' in session and 'type' in session:
         # ToDo: redirect Different pages according to User Type
-        return redirect(redirect_page_type(session['type']))
+        return redirect(url_for(redirect_page_type(session['type'])))
 
     if request.method == 'GET':
         return render_template("login.html")
     else:
         username = request.form.get('login')
         password = request.form.get('password')
-        if password is None or username is None:
+
+        try:
+            correct_password = get_correct_password(request.form.get('login'))[0]
+        except:
             return redirect(url_for("login"))
-        correct_password = get_correct_password(request.form.get('login'))[0]
-        print(correct_password)
-        print(password)
+
         if correct_password is not None and correct_password == password:
             session['name'] = username
             user_type = get_user_type(username)[0]

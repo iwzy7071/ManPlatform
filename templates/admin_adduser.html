@@ -1,0 +1,32 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>添加用户</h2>
+                <p>Add User
+                {% if msg %}
+                    <code>{{ msg }}</code>
+                {% endif %}</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="form-group"><label class="col-md-2 control-label">用户名</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="username"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">用户密码</label>
+                <div class="col-md-10"><input type="password" class="form-control" name="password"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">选择用户类型</label>
+                <div class="col-md-10"><select class="form-control" name="usertype">
+                    <option>教师/Teacher</option>
+                    <option>学生/Student</option>
+                    <option>游客/Visitor</option>
+                    <option>管理员/Admin</option>
+                </select></div>
+            </div>
+            <div class="form-group margin-top-20">
+                <button class="btn btn-default" type="submit">Submit & Validate</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

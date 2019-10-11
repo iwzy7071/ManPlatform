@@ -6,5 +6,5 @@ from werkzeug.security import check_password_hash
 
 @app.route('/visitor/index')
 def visitorindex():
-    return render_template("visitorindex.html")
+    return render_template("visitor_index.html")
 

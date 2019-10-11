@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Boooya - Lock Screen</title><!-- META SECTION -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><!-- END META SECTION --><!-- CSS INCLUDE -->
+    <link rel="stylesheet" href="css/styles.css"><!-- EOF CSS INCLUDE --></head>
+<body><!-- APP WRAPPER -->
+<div class="app app-fh"><!-- START APP CONTAINER -->
+    <div class="app-container" style="background: url(assets/images/background/bg-1.jpg) center center no-repeat fixed">
+        <div class="app-lock">
+            <div class="app-lock-user"><img src="assets/images/users/user_1.jpg" alt="John Doe"></div>
+            <div class="app-lock-form">
+                <form action="http://boooya.aqvatarius.com/index.html" method="post">
+                    <div class="form-group"><input type="password" class="form-control" name="pin"></div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="app-checkbox"><label><input type="checkbox" name="logged" value="1"
+                                                                        checked="checked"> Keep me logged</label></div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-success btn-block btn-icon-fixed"><span class="icon-lock"></span>Unlock
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- END APP CONTAINER --></div><!-- END APP WRAPPER -->
+<div class="modal fade" id="modal-thanks" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                                                                                          class="icon-cross"></span>
+        </button>
+        <div class="modal-content">
+            <div class="modal-body"><p class="text-center margin-bottom-20"><img src="assets/images/smile.png"
+                                                                                 alt="Thank you" style="width: 100px">
+            </p>
+                <h3 id="modal-thanks-heading"
+                    class="text-uppercase text-bold text-lg heading-line-below heading-line-below-short text-center"></h3>
+                <p class="text-muted text-center margin-bottom-10">Thank you so much for likes</p>
+                <p class="text-muted text-center">We will do our best to make<br>Boooya template perfect</p>
+                <p class="text-center">
+                    <button class="btn btn-success btn-clean" data-dismiss="modal">Continue</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div><!-- IMPORTANT SCRIPTS -->
+<script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/vendor/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/vendor/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
+<script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<!-- END IMPORTANT SCRIPTS --><!-- APP SCRIPTS -->
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/app_plugins.js"></script>
+<script type="text/javascript" src="js/app_demo.js"></script><!-- END APP SCRIPTS --></body>
+</html>

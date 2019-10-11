@@ -1,0 +1,43 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- MESSAGE -->
+                {% for message in messages %}
+                    <div class="block block-condensed block-highlight-hover">
+                        <div class="app-heading app-heading-small margin-bottom-0">
+                            <div class="title">
+                                <div class="contact contact-rounded contact-bordered contact-lg margin-bottom-0">
+                                    <img src="../static/assets/images/users/user_1.jpg" alt="">
+                                    <div class="contact-container"><span>{{ message[3] }}</span></div>
+                                    <div class="contact-container">{{ message[2] }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="heading-elements">
+                                <div class="dropdown">
+                                    <button class="btn btn-default btn-icon btn-sm" data-toggle="dropdown"><span
+                                            class="fa fa-cog"></span></button>
+                                    <ul class="dropdown-menu dropdown-left">
+                                        <li>
+                                            <a><span
+                                                    class="icon-arrow-right-circle"></span> Send Message</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="http://www.dmaku.com/demo/moban/2018040857991019/pages-messages-list.html#"><span
+                                                    class="icon-cross-circle"></span> Delete Message</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content"><p>{{ message[0] }}</p></div>
+                        <div class="col-md-12">
+                            <input name = "input" type="text" class="form-control" value={{ message[1] }}>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

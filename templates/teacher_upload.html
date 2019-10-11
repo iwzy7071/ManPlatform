@@ -1,0 +1,24 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>上传文件</h2>
+                            <p>Upload Files{% if msg %}
+                                <code>{{ msg }}</code>
+                            {% endif %}</p></div>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file" placeholder="Upload file" class="dropzone">
+                        <div class="form-group margin-top-20">
+                            <button class="btn btn-default" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

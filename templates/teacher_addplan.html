@@ -1,0 +1,33 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>添加课程安排</h2>
+                            <p>Add teaching plans{% if msg %}
+                                <code>{{ msg }}</code>
+                            {% endif %}</p></div>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div><label class="col-md-2 control-label">设置安排日期</label>
+                            <input type="date" value="2015-09-24" class="form-control" name="plandate">
+                        </div>
+                        <div><label class="col-md-2 control-label">添加教学标题</label>
+                            <input type="text" class="form-control" name="plantitle">
+                        </div>
+                        <div><label class="col-md-2 control-label">添加教学内容</label>
+                            <textarea class="form-control" rows="5" name="plancontent"></textarea>
+                        </div>
+                        <div class="form-group margin-top-20">
+                            <button class="btn btn-default" type="submit">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
