@@ -41,7 +41,7 @@ def studentprotection():
 
 
 @app.route('/student/seejournal', methods=["GET", "POST"])
-def adminjournal():
+def studentseejournal():
     if request.method == 'GET':
         return render_template("admin_addjournal.html")
     else:
