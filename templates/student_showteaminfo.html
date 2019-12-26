@@ -1,0 +1,35 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>添加学生到课程</h2>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="col-md-10"><label>选择团队名称</label><select class="bs-select" data-live-search="true" name="course">
+                {% for massage in msg[0][0] %}
+                    <option>{{ massage }}</option>
+                {% endfor %}
+            </select><span class="help-block"></span></div>
+
+            {% if msg[2] %}
+                <div class="col-md-10"><label>选择上课学生</label><select class="multiselect form-control" multiple="multiple"
+                                                                    name="student">
+                    {% for massage in msg[2] %}
+                        <option selected="selected">{{ massage }}</option>
+                    {% endfor %}
+                    {% for massage in msg[3] %}
+                        <option>{{ massage }}</option>
+                    {% endfor %}
+                </select></div>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="submit">Submit</button>
+                </div>
+            {% else %}
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="query">Query</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

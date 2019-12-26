@@ -1,0 +1,26 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>查看团队信息</h2>
+                <p>See team info</p>
+            </div>
+        </div>
+        <table border="1" class="table-condensed">
+            <tr>
+                <td>课程名称</td>
+                <td>团队名称</td>
+                <td>人数上限</td>
+                <td>队长名称</td>
+                <td>团队ID</td>
+            </tr>
+            {% for msgs in message.get('messages') %}
+                <tr>
+                    {% for msg in msgs %}
+                        <td>{{ msg }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

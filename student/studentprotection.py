@@ -2,8 +2,7 @@ import sqlite3
 
 
 def get_database_cursor():
-    # Todo: the path of db may recity after uploaded to the server
-    conn = sqlite3.connect("../users.db")
+    conn = sqlite3.connect("users.db")
     conn.isolation_level = None
     return conn.cursor()
 
@@ -13,23 +12,22 @@ def find_student_protection(username):
     cursor = get_database_cursor()
     sql = "SELECT * FROM Studentprotection where Username = '%s'" % (username)
     cursor.execute(sql)
-    if cursor.fetchone() is not None:
-        return True
-    else:
+    result = cursor.fetchone()
+    if result is None:
         return False
+    else:
+        return True
 
 
-# TODO:Need to change the print part
 def add_student_protection(type, answer, username):
     cursor = get_database_cursor()
     if find_student_protection(username) is True:
         print("Already exist")
     else:
-        sql = "INSERT into Studentprotection (Type,Answer,Username) VALUES(%s,'%s','%s')" % (type, answer, username)
+        sql = "INSERT into Studentprotection (Type,Answer,Username) VALUES('%s','%s','%s')" % (type, answer, username)
         cursor.execute(sql)
 
 
-# TODO:Need to change the print part
 def verify_student_protection(type, answer, username):
     cursor = get_database_cursor()
     if find_student_protection(username) is False:

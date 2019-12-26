@@ -1,0 +1,17 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>教师介绍</h2></div>
+                    </div>
+                    <div class="text-bolder">{{ message.get('messages')[0] }}</div>
+                    <div class="contact-container">{{ message.get('messages')[1] }}</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

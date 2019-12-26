@@ -7,18 +7,20 @@ def get_database_cursor():
     return conn.cursor()
 
 
-def addplans(date, title, text):
+def addplans(teachername, classname, date, title, text):
     cursor = get_database_cursor()
     sql = "SELECT * from Teachingplan where Time = '%s'" % (date)
     cursor.execute(sql)
     if cursor.fetchone() is not None:
-        updateplans(date, title, text)
+        updateplans(teachername, classname, date, title, text)
     else:
-        sql2 = "INSERT into Teachingplan (Time,Title,Content) VALUES ('%s','%s','%s')" % (date, title, text)
+        sql2 = "INSERT into Teachingplan (TeacherName,Classname,Time,Title,Content) VALUES ('%s','%s','%s','%s','%s')" % (
+            teachername, classname, date, title, text)
         cursor.execute(sql2)
 
 
-def updateplans(date, title, text):
+def updateplans(teachername, classname, date, title, text):
     cursor = get_database_cursor()
-    sql = "UPDATE Teachingplan set Content = '%s', Title = '%s' where Time = '%s'" % (text, title, date)
+    sql = "UPDATE Teachingplan set Content = '%s', Title = '%s' where Time = '%s' and TeacherName = '%s' and Classname = '%s'" % (
+        text, title, date, teachername, classname)
     cursor.execute(sql)

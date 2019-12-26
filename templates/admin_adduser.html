@@ -4,9 +4,9 @@
         <div class="app-heading app-heading-small">
             <div class="title"><h2>添加用户</h2>
                 <p>Add User
-                {% if msg %}
-                    <code>{{ msg }}</code>
-                {% endif %}</p>
+                    {% if message.get('messages') %}
+                        <code>{{ message.get('messages') }}</code>
+                    {% endif %}</p>
             </div>
         </div>
         <form class="form-horizontal" method="POST" novalidat>
@@ -24,8 +24,11 @@
                     <option>管理员/Admin</option>
                 </select></div>
             </div>
+            <div class="form-group"><label class="col-md-2 control-label">真实姓名</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="realname"></div>
+            </div>
             <div class="form-group margin-top-20">
-                <button class="btn btn-default" type="submit">Submit & Validate</button>
+                <button class="btn btn-default" type="submit">确认提交</button>
             </div>
         </form>
     </div>

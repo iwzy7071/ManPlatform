@@ -1,0 +1,32 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>查看教师信息</h2>
+                <p>See teacher info</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidate>
+            {% if message.get('messages')[0] == 0 %}
+                <div class="form-group"><label class="col-md-2 control-label">选择教师名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="teacher">
+                        {% for message in message.get('messages')[1] %}
+                            <option>{{ message[0] }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <p></p>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit">搜索</button>
+                </div>
+            {% else %}
+                <div class="header-content">{{ message.get('messages')[1][0] }}</div>
+                <p></p>
+                <p></p>
+                <div class="content-block">{{ message.get('messages')[1][1] }}</div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="container">
+        <table border="1" class="table-condensed">
+            <tr>
+                <td>教师名称</td>
+                <td>课程名称</td>
+                <td>作业序号</td>
+                <td>作业标题</td>
+                <td>截止时间</td>
+                <td>发布时间</td>
+                <td>作业信息</td>
+            </tr>
+            {% for msgs in message.get('messages') %}
+                <tr>
+                    {% for msg in msgs[:-1] %}
+                        <td>{{ msg }}</td>
+                    {% endfor %}
+                    {% if msgs[-1] != 'Empty' %}
+                        <td><a href={{ url_for("gethomeworkfile",filename=msgs[-1]) }}>{{ msgs[-1] }}</a></td>
+                    {% else %}
+                        <td>{{ msgs[-1] }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

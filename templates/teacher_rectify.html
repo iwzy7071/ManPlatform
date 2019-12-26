@@ -1,0 +1,59 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                {% if message.get('messages')[0] == 1 %}
+                    <h2>{{ message.get('messages')[1] }} {{ message.get('messages')[2] }}</h2>
+                {% else %}
+                    <h2>批改课程</h2>
+                {% endif %}
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            {% if message.get('messages')[0] == 0 %}
+                <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="course">
+                        {% for message in message.get('messages')[1] %}
+                            <option>{{ message }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <div><label class="col-md-10">作业序号</label>
+                    <input type="text" class="form-control" name="number">
+                </div>
+            {% else %}
+                <div class="form-group"><label class="col-md-2 control-label">查看作业名称</label>
+                    <div class="block block-condensed block-highlight-hover">
+                        <div class="col-md-10">
+                            {% for msg in message.get('messages')[3] %}
+                                <a href={{ url_for('teachershowhomework',text=msg) }}>{{ msg }}</a>
+                                <p></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group"><label class="col-md-2 control-label">作业名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="workname">
+                        {% for msg in message.get('messages')[3] %}
+                            <option href={{ url_for("teachershowhomework",text=msg) }}>{{ msg }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span>
+                    </div>
+                    <p></p>
+                    <div><label class="col-md-10">输入分数</label>
+                        <input type="text" class="form-control" name="worknumber">
+                    </div>
+                </div>
+            {% endif %}
+            <p></p>
+            <div class="form-group margin-top-20">
+                <button class="btn btn-default" type="submit" name="choose" value="query">确认提交</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

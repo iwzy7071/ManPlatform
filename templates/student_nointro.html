@@ -1,0 +1,35 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="app" style="height: 100%"><!-- START APP CONTAINER -->
+        <div class="app-container app-error-container">
+            <div class="app-error">
+                <div class="app-error-code">Boom!</div>
+                <div class="app-error-message">Woooops... There is no teacher introduction here</div>
+                <div class="app-error-button"><a href="index.html"
+                                                 class="btn btn-primary btn-lg btn-shadowed btn-rounded">Back
+                    to index</a></div>
+            </div>
+        </div><!-- END APP CONTAINER --></div><!-- END APP WRAPPER -->
+    <div class="modal fade" id="modal-thanks" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                                                                                              class="icon-cross"></span>
+            </button>
+            <div class="modal-content">
+                <div class="modal-body"><p class="text-center margin-bottom-20"><img
+                        src="../static/assets/images/smile.png"
+                        alt="Thank you"
+                        style="width: 100px">
+                </p>
+                    <h3 id="modal-thanks-heading"
+                        class="text-uppercase text-bold text-lg heading-line-below heading-line-below-short text-center"></h3>
+                    <p class="text-muted text-center margin-bottom-10">Thank you so much for likes</p>
+                    <p class="text-muted text-center">We will do our best to make<br>Boooya template perfect</p>
+                    <p class="text-center">
+                        <button class="btn btn-success btn-clean" data-dismiss="modal">Continue</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!-- IMPORTANT SCRIPTS -->
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>生成题目KEY</h2></div>
+                        <p>Generate KEY
+                            {% if message.get('messages') %}
+                                <code>{{ message.get('messages') }}</code>
+                            {% endif %}</p>
+                        <br>
+                        {% if message.get('key') %}
+                            已拥有的KEY值
+                            {% for sentence in message.get('key') %}
+                                <label><code>{{ sentence }}</code></label>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 control-label">设置题目Key</label>
+                            <div class="col-md-10"><input type="password" class="form-control" name="password1"></div>
+                        </div>
+                        <div class="form-group"><label class="col-md-2 control-label">验证题目Key</label>
+                            <div class="col-md-10"><input type="password" class="form-control" name="password2"></div>
+                        </div>
+                        <p></p>
+                        <div class="form-group margin-top-20">
+                            <button class="btn btn-default" type="submit">确认添加</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

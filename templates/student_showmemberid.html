@@ -1,0 +1,33 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>查看队伍ID</h2>
+                {% if message.get('messages')[0] == 2 %}
+                    <code>{{ message.get('messages')[1] }}</code>
+                {% endif %}
+                <p>Watch Team ID</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            {% if message.get('messages')[0] == 0 %}
+                <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="course">
+                        {% for message in message.get('messages')[1] %}
+                            <option>{{ message[0] }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <p></p>
+                <div class="col-md-10">
+                    <button class="btn btn-default" type="submit">Search</button>
+                </div>
+            {% elif message.get('messages')[0] ==  1 %}
+                <div class="form-group"><label class="col-md-2 control-label">Member ID</label></div>
+                {% for message in message.get('messages')[1] %}
+                    <div class="col-md-10">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </form>
+{% endblock %}

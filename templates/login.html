@@ -9,9 +9,15 @@
 <div class="app"><!-- START APP CONTAINER -->
     <div class="app-container">
         <div class="app-login-box">
-            <div class="app-login-box-user"><img src="../static/img/user/no-image.png" alt="John Doe"></div>
+            <div class="app-navigation-logo"><img src="../static/img/zju.jpg" alt="John Doe" width="360" align="middle">
+            </div>
             <div class="app-login-box-title">
                 <div class="title">登入你的账户</div>
+                <code>
+                    {% if message %}
+                        {{ message }}
+                    {% endif %}
+                </code>
             </div>
             <div class="app-login-box-container">
                 <form action="" method="POST" novalidate>
@@ -19,21 +25,13 @@
                                                    placeholder="用户名"></div>
                     <div class="form-group"><input type="password" class="form-control" name="password"
                                                    placeholder="密码"></div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-6">
-                                <div class="app-checkbox"><label><input type="checkbox" name="app-checkbox-1" value="0">
-                                    Remember me</label></div>
-                            </div>
-                            <div class="col-md-6 col-xs-6">
-                                <button class="btn btn-success btn-block">登入</button>
-                            </div>
-                        </div>
-                    </div>
+                    <p>
+                        <button class="btn btn-info">登入</button>
+                        <a class="btn btn-danger" href={{ url_for("findpassword") }}>找回密码</a></p>
                 </form>
+
             </div>
 
-            <div class="app-login-box-footer">&copy; Group XI 2019. All rights reserved.</div>
         </div>
     </div><!-- END APP CONTAINER --></div><!-- END APP WRAPPER -->
 <div class="modal fade" id="modal-thanks" tabindex="-1" role="dialog">

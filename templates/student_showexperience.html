@@ -1,0 +1,37 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+    <div class="app-heading app-heading-small">
+        <div class="title"><h2>查看教师信息</h2>
+            <p>See teacher info</p>
+        </div>
+    </div>
+    <form class="form-horizontal" method="POST" novalidat>
+        {% if msg[0] == 0 %}
+            <div class="col-md-10"><label>选择教师名称</label><select class="bs-select" data-live-search="true"
+                                                                name="teacher">
+                {% for message in msg[1] %}
+                    <option>{{ message[0] }}</option>
+                {% endfor %}
+            </select><span class="help-block"></span></div>
+            <div class="col-md-10">
+                <button class="btn btn-default" type="submit">Search</button>
+            </div>
+        {% else %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md"><!-- DEFAULT DROPZONE -->
+                        <div class="block">
+                            <div class="app-heading app-heading-small">
+                                <div class="title"><h2>教师介绍</h2></div>
+                            </div>
+                            <div class="text-bolder">{{ msg[1][0] }}</div>
+                            <div class="contact-container">{{ msg[1][1] }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </form>
+{% endblock %}
+

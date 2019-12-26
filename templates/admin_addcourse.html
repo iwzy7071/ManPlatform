@@ -1,0 +1,36 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>添加课程</h2>
+                <p>Add User
+                    {% if message.get('messages') %}
+                        <code>{{ message.get('messages') }}</code>
+                    {% endif %}</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="form-group"><label class="col-md-2 control-label">课程名称</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="classname"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">总课时</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="weeklytime"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">课程介绍</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="introduction"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">教学计划</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="teachingplan"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">课程需求</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="requirement"></div>
+            </div>
+            <div class="form-group"><label class="col-md-2 control-label">评分政策</label>
+                <div class="col-md-10"><input type="text" class="form-control" name="gradingpolicy"></div>
+            </div>
+            <div class="form-group margin-top-20">
+                <button class="btn btn-default" type="submit">确认添加</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

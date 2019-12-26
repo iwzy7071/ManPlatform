@@ -1,0 +1,27 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>接受KEY</h2></div>
+                        <p>Receive Key
+                            {% if message.get('messages') %}
+                                <code>{{ message.get('messages') }}</code>
+                            {% endif %}</p>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 control-label">接受KEY</label>
+                            <div class="col-md-10"><input type="password" class="form-control" name="password"></div>
+                        </div>
+                        <div class="form-group margin-top-20">
+                            <button class="btn btn-default" type="submit">确认接受</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

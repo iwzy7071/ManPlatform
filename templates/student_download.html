@@ -1,0 +1,20 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- MESSAGE -->
+
+                <div class="block block-condensed block-highlight-hover">
+                    <div class="title">
+                        {% for msg in message.get('messages') %}
+                            <div class="contact-container"><a
+                                    href={{ url_for('downloadfiles',filename=msg) }}>{{ msg }}</a></div>
+                            <p></p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

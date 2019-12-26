@@ -1,0 +1,22 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                <h2>分享文件
+                    {% if message.get('messages') %}
+                        {{ message.get('messages') }}
+                    {% endif %}
+                </h2>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+            <div class="form-group margin-top-20">
+                <input type="file" name="file" placeholder="Upload file" class="dropzone">
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

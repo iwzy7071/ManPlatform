@@ -1,0 +1,45 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                <h2>查看课程分数</h2>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            {% if message.get('messages')[0] == 0 %}
+                <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="course">
+                        {% for message in message.get('messages')[1] %}
+                            <option>{{ message[0] }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="query">查询</button>
+                </div>
+            {% else %}
+                <table border="1" class="table-condensed">
+                    <tr>
+                        <td>作业序号</td>
+                        {% for msg in message.get('messages')[1][0] %}
+                            <td>{{ message.get('messages')[1][0].index(msg) }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>分数</td>
+                        {% for msg in message.get('messages')[1][0] %}
+                            <td>{{ msg }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>最终成绩:</td>
+                        <td>{{ message.get('messages')[1][1] }}</td>
+                    </tr>
+                </table>
+            {% endif %}
+
+        </form>
+    </div>
+{% endblock %}

@@ -4,15 +4,15 @@
         <div class="app-heading app-heading-small">
             <div class="title"><h2>添加更新日志</h2>
                 <p>Add Journal
-                    {% if msg %}
-                        <code>{{ msg }}</code>
+                    {% if message.get('messages') %}
+                        <code>{{ message.get('messages') }}</code>
                     {% endif %}</p>
             </div>
         </div>
         <form class="form-horizontal" method="POST" novalidat>
             <div class="col-md-10"><textarea class="form-control" rows="15" name="journal"></textarea></div>
             <div class="form-group margin-top-20">
-                <button class="btn btn-default" type="submit">Submit & Validate</button>
+                <button class="btn btn-default" type="submit">确认添加</button>
             </div>
         </form>
     </div>

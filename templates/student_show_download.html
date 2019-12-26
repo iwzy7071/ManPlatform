@@ -1,0 +1,24 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                <h2>下载资料</h2>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidate>
+            <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                <p></p>
+                <div class="col-md-10"><select class="form-control" name="course">
+                    {% for message in message.get('messages') %}
+                        <option>{{ message }}</option>
+                    {% endfor %}
+                </select><span class="help-block"></span></div>
+            </div>
+            <p></p>
+            <div class="form-group margin-top-20">
+                <button class="btn btn-default" type="submit">搜索</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                <h2>课后练习</h2>
+                <p>Homework Practice
+                    {% if message.get('reflection') %}
+                        <code>{{ message.get('reflection') }}</code>
+                    {% endif %}</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="form-group">
+                <div class="form-control">{{ message.get('messages')[1] }}</div>
+                <div class="form-group">
+                    {% for choice in message.get('messages')[2] %}
+                        <div class="form-control">{{ choice }}</div>
+                        <p></p>
+                    {% endfor %}
+                    <div class="col-md-10"><select class="form-control" name="choice">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                    </select><span class="help-block"></span></div>
+                </div>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="query">提交答案</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

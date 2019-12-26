@@ -6,19 +6,21 @@
                 <div class="block">
                     <div class="app-heading app-heading-small">
                         <div class="title"><h2>添加教师心得</h2>
-                            <p>Add teaching experience{% if msg %}
-                                <code>{{ msg }}</code>
+                            <p>Add teaching experience{% if message.get('messages') %}
+                                <code>{{ message.get('messages') }}</code>
                             {% endif %}</p></div>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div><label class="col-md-2 control-label">添加心得标题</label>
                             <input type="text" class="form-control" name="experiencetitle">
                         </div>
+                        <p></p>
                         <div><label class="col-md-2 control-label">添加心得内容</label>
                             <textarea class="form-control" rows="5" name="experiencecontent"></textarea>
                         </div>
+                        <p></p>
                         <div class="form-group margin-top-20">
-                            <button class="btn btn-default" type="submit">Submit</button>
+                            <button class="btn btn-default" type="submit">确认添加</button>
                         </div>
 
                     </form>

@@ -1,0 +1,44 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>查看课程信息</h2>
+                <p>See course info</p>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            {% if message.get('messages')[0] == '0' %}
+                <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                    <p></p>
+                    <div class="col-md-10"><select class="form-control" name="course">
+                        {% for message in message.get('messages')[1] %}
+                            <option>{{ message[0] }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <p></p>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit">查询课程</button>
+                </div>
+            {% else %}
+                <div class="form-group"><label class="col-md-2 control-label">课程名称</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][0] }}</div>
+                </div>
+                <div class="form-group"><label class="col-md-2 control-label">总课时</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][1] }}</div>
+                </div>
+                <div class="form-group"><label class="col-md-2 control-label">课程介绍</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][2] }}</div>
+                </div>
+                <div class="form-group"><label class="col-md-2 control-label">教学计划</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][3] }}</div>
+                </div>
+                <div class="form-group"><label class="col-md-2 control-label">课程需求</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][4] }}</div>
+                </div>
+                <div class="form-group"><label class="col-md-2 control-label">评分政策</label>
+                    <div class="col-md-10">{{ message.get('messages')[1][0][5] }}</div>
+                </div>
+            {% endif %}
+        </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>查看题目信息</h2>
+                <p>See Problem info</p>
+            </div>
+        </div>
+        <table border="1" class="table-condensed">
+            <tr>
+                <td>出题人</td>
+                <td>课程名称</td>
+                <td>题目序号</td>
+                <td>题目内容</td>
+                <td>选项A</td>
+                <td>选项B</td>
+                <td>选项C</td>
+                <td>选项D</td>
+                <td>正确答案</td>
+                <td>题目KEY值</td>
+            </tr>
+            {% for msgs in message.get('messages') %}
+                <tr>
+                    {% for msg in msgs %}
+                        <td>{{ msg }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

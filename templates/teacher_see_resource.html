@@ -1,0 +1,18 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- MESSAGE -->
+                {% for msg in message.get('messages') %}
+                    <div class="app-heading app-heading-small margin-bottom-0">
+                        <a href={{ url_for("teacher_downloadresource",filename=msg) }}>{{ msg }}</a>
+                        <a class="heading-elements"
+                           href={{ url_for("teacher_deleteresource",filename=msg) }}><span
+                                class="icon-cross-circle"></span> Delete Message</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

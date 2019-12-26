@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
+
 <body>
+
 <!-- APP WRAPPER -->
 <div class="app">
     <!-- START APP CONTAINER -->
@@ -16,15 +18,8 @@
         <!-- START SIDEBAR -->
         <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left"
              data-type="close-other">
-            <a href="index.html" class="app-navigation-logo">
+            <a class="app-navigation-logo">
                 Boooya - Revolution Admin Template
-                <button class="app-navigation-logo-button mobile-hidden" data-sidepanel-toggle=".app-sidepanel">
-							<span class="icon-alarm">
-							</span>
-                    <span class="app-navigation-logo-button-alert">
-								7
-							</span>
-                </button>
             </a>
             <nav>
                 <ul>
@@ -32,101 +27,99 @@
                         INFORMATION
                     </li>
                     <li>
-                        <a href="#">
-                            <span class="nav-icon-hexa">I</span>
-                            课程简介
+                        <a href={{ url_for("teachershowplans") }}>
+                            查看课程安排
                         </a>
-                        <ul>
-                            <a href="#">
-									<span class="nav-icon-hexa">
-										1
-									</span>
-                                添加课程安排
-                            </a>
-                            <a href="#">
-									<span class="nav-icon-hexa">
-										2
-									</span>
-                                查看课程安排
-                            </a>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#">
-                            <span class="nav-icon-hexa">II</span>
-                            教师介绍/添加介绍
+                        <a href={{ url_for("teachershowteacher") }}>
+                            查看教师介绍
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teachershowexperience") }}>
+                            查看教师心得
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacher_showresource") }}>
+                            查看资料
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacher_showteams") }}>
+                            查看团队
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teachershowhomeworks") }}>
+                            查看回家作业
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacher_showproblem") }}>
+                            查看课程题目
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacherseejournal") }}>
+                            查看网站更新日志
                         </a>
                     </li>
                     <li class="title">
-                        Notification
+                        Course
                     </li>
                     <li>
-                        <a href="#">
-									<span class="nav-icon-hexa">
-										I
-									</span>
-                            信息发布
+                        <a href={{ url_for("teacheraddplan") }}>
+                            添加课程安排
                         </a>
-                        <ul>
-                            <li>
-                                <a href="forms-elements-checkbox-radio.html">
-											<span class="nav-icon-hexa">
-												1
-											</span>
-                                    添加教师心得
-                                </a>
-                            </li>
-                            <li>
-                                <a href="forms-elements-select-datepicker.html">
-											<span class="nav-icon-hexa">
-												2
-											</span>
-                                    查看网站更新日志
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#">
-									<span class="nav-icon-hexa">
-										II
-									</span>
+                        <a href={{ url_for("teacheraddexperience") }}>
+                            添加教师心得
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacheraddintro") }}>
+                            添加教师介绍
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacherupload") }}>
                             上传资料
                         </a>
                     </li>
-
                     <li class="title">
                         Homework
                     </li>
                     <li>
-                        <a href="#">
-									<span class="nav-icon-hexa">
-										I
-									</span>
+                        <a href={{ url_for("teacherassignhomework") }}>
                             发布作业
+                        </a>
+                        <a href={{ url_for("teacherrectifyhomework") }}>
+                            批改作业
+                        </a>
+                    </li>
+                    <li class="title">
+                        Problem
+                    </li>
+                    <li>
+                        <a href={{ url_for("teacher_addproblem") }}>
+                            添加课程题目
+                        </a>
+                        <a href={{ url_for("teacheraddkey") }}>
+                            生成题目KEY
+                        </a>
+                        <a href={{ url_for("teacherreceivekey") }}>
+                            接受KEY
                         </a>
                     </li>
                     <li class="title">
                         Help
                     </li>
                     <li>
-                        <a href="layouts-examples.html">
-									<span class="nav-icon-hexa">
-										I
-									</span>
+                        <a href={{ url_for("studentshowteacher") }}>
                             帮助
-                            <span class="label label-warning label-bordered label-ghost">
-										Help
-									</span>
-                        </a>
-                        <a href="layouts-examples.html">
-									<span class="nav-icon-hexa">
-										II
-									</span>
-                            申诉
-                            <span class="label label-warning label-bordered label-ghost">
-										Help
-									</span>
                         </a>
                     </li>
                 </ul>
@@ -151,181 +144,19 @@
                         </a>
                     </li>
                 </ul>
-                <form class="app-header-search" action="#" method="post">
-                    <input type="text" name="keyword" placeholder="Search">
-                </form>
                 <ul class="app-header-buttons pull-right">
                     <li>
                         <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls hidden-xs">
-                            <img src="../static/assets/images/users/user_1.jpg" alt="John Doe">
+                            <img src="../static/assets/images/users/user_2.jpg" alt="John Doe">
                             <div class="contact-container">
-                                <a href="#">
-                                    John Doe
-                                </a>
+                                Teacher
                                 <span>
-											Administrator
-										</span>
-                            </div>
-                            <div class="contact-controls">
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown">
-												<span class="icon-layers">
-												</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-left">
-                                        <li>
-                                            <a href="pages-profile-social.html">
-														<span class="icon-users">
-														</span>
-                                                Account
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="pages-messages-chat.html">
-														<span class="icon-envelope">
-														</span>
-                                                Messages
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="pages-profile-card.html">
-														<span class="icon-users">
-														</span>
-                                                Contacts
-                                            </a>
-                                        </li>
-                                        <li class="divider">
-                                        </li>
-                                        <li>
-                                            <a href="pages-email-inbox.html">
-														<span class="icon-envelope">
-														</span>
-                                                E-mail
-                                                <span class="label label-danger pull-right">
-															19/2,399
-														</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    {{ message.get('name') }}
+                                </span>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="btn btn-default btn-icon btn-informer" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="true">
-										<span class="icon-alarm">
-										</span>
-                                <span class="informer informer-danger informer-sm informer-square">
-											+3
-										</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-form dropdown-left dropdown-form-wide">
-                                <li class="padding-0">
-                                    <div class="app-heading title-only app-heading-bordered-bottom">
-                                        <div class="icon">
-													<span class="icon-text-align-left">
-													</span>
-                                        </div>
-                                        <div class="title">
-                                            <h2>
-                                                Notifications
-                                            </h2>
-                                        </div>
-                                        <div class="heading-elements">
-                                            <a href="#" class="btn btn-default btn-icon">
-														<span class="icon-sync">
-														</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="app-timeline scroll app-timeline-simple text-sm" style="height: 240px">
-                                        <div class="app-timeline-item">
-                                            <div class="dot dot-primary">
-                                            </div>
-                                            <div class="content">
-                                                <div class="title margin-bottom-0">
-                                                    <a href="#">
-                                                        Jessie Franklin
-                                                    </a>
-                                                    uploaded new file
-                                                    <strong>
-                                                        844_jswork.pdf
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="app-timeline-item">
-                                            <div class="dot dot-warning">
-                                            </div>
-                                            <div class="content">
-                                                <div class="title margin-bottom-0">
-                                                    <a href="#">
-                                                        Taylor Watson
-                                                    </a>
-                                                    changed work status
-                                                    <strong>
-                                                        PSD Dashboard
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="app-timeline-item">
-                                            <div class="dot dot-success">
-                                            </div>
-                                            <div class="content">
-                                                <div class="title margin-bottom-0">
-                                                    <a href="#">
-                                                        Dmitry Ivaniuk
-                                                    </a>
-                                                    approved project
-                                                    <strong>
-                                                        Boooya
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="app-timeline-item">
-                                            <div class="dot dot-success">
-                                            </div>
-                                            <div class="content">
-                                                <div class="title margin-bottom-0">
-                                                    <a href="#">
-                                                        Boris Shaw
-                                                    </a>
-                                                    finished work on
-                                                    <strong>
-                                                        Boooya
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="app-timeline-item">
-                                            <div class="dot dot-danger">
-                                            </div>
-                                            <div class="content">
-                                                <div class="title margin-bottom-0">
-                                                    <a href="#">
-                                                        Jasmine Voyer
-                                                    </a>
-                                                    declined order
-                                                    <strong>
-                                                        Project 155
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="padding-top-0">
-                                    <button class="btn btn-block btn-link">
-                                        Preview All
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
                     <li>
                         <a href={{ url_for("logout") }} class="btn btn-default btn-icon">
                         <span class="icon-power-switch">
@@ -338,314 +169,7 @@
             <!-- START PAGE HEADING -->
             {% block content %}{% endblock %}
             <!-- END APP CONTAINER -->
-            <!-- START APP FOOTER -->
-            <div class="app-footer app-footer-default" id="footer">
-                <div class="app-footer-line">
-                    <div class="copyright">
-                        &copy; 2016-2017 Boooya. All right reserved in the Ukraine and other countries. <a
-                            href="http://www.dmaku.com/moban.html" target="_blank" title="后台模板">后台模板</a>
-                    </div>
-                    <div class="pull-right">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Help
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Community
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Contacts
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- END APP FOOTER -->
             <!-- START APP SIDEPANEL -->
-            <div class="app-sidepanel scroll" data-overlay="show">
-                <div class="container">
-                    <div class="app-heading app-heading-condensed app-heading-small padding-left-0">
-                        <div class="icon icon-lg">
-							<span class="icon-alarm">
-							</span>
-                        </div>
-                        <div class="title">
-                            <h2>
-                                Notifications
-                            </h2>
-                            <p>
-                                <strong>
-                                    7 new
-                                </strong>
-                                , latest: July 19, 2016 at 10:14:32.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="listing margin-bottom-10">
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                Product Delivered
-                            </strong>
-                            <span class="label label-success pull-right">
-								delivered
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                #SPW-955-18 to st. StreetName SA, USA.
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-truck margin-right-5">
-								</span>
-                                19/07/2016 10:14:32 AM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                Successful Payment
-                            </strong>
-                            <span class="label label-success pull-right">
-								success
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                Payment for order #SPW-955-17:
-                                <strong>
-                                    $145.44
-                                </strong>
-                                .
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-bank margin-right-5">
-								</span>
-                                19/07/2016 09:55:12 AM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                New Order #SPW-955-17
-                            </strong>
-                            <span class="label label-warning pull-right">
-								waiting
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                Added new order, waiting for payment.
-                                <a href="#">
-                                    Order details
-                                </a>
-                                .
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-bank margin-right-5">
-								</span>
-                                19/07/2016 09:51:55 AM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                Money Back Request
-                            </strong>
-                            <span class="label label-primary pull-right">
-								return
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                #SPW-955-17 return requested.
-                                <a href="#">
-                                    Request details
-                                </a>
-                                .
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-bank margin-right-5">
-								</span>
-                                19/07/2016 08:44:51 AM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                The critical amount of product
-                            </strong>
-                            <span class="label label-danger pull-right">
-								important
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                Product:
-                                <a href="#">
-                                    Extra Awesome Product
-                                </a>
-                                (amount:
-                                <span class="text-danger">
-									2
-								</span>
-                                ).
-                                <a href="#">
-                                    Storehouse
-                                </a>
-                                .
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-cube margin-right-5">
-								</span>
-                                19/07/2016 08:30:00 AM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                Product Delivery Start
-                            </strong>
-                            <span class="label label-warning pull-right">
-								delivering
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                #SPW-955-18 to st. StreetName SA, USA.
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-truck margin-right-5">
-								</span>
-                                18/07/2016 06:14:32 PM
-                            </p>
-                        </div>
-                        <div class="listing-item margin-bottom-10">
-                            <strong>
-                                Critical Server Load
-                            </strong>
-                            <span class="label label-danger pull-right">
-								server
-							</span>
-                            <p class="margin-0 margin-top-5">
-                                Disk space: 248.1Gb/250Gb.
-                                <a href="#">
-                                    Control panel
-                                </a>
-                                .
-                            </p>
-                            <p class="text-muted">
-								<span class="fa fa-truck margin-right-5">
-								</span>
-                                18/07/2016 06:14:32 PM
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row margin-bottom-30">
-                        <div class="col-xs-6 col-xs-offset-3">
-                            <button class="btn btn-default btn-block">
-                                All Notification
-                            </button>
-                        </div>
-                    </div>
-                    <div class="app-heading app-heading-condensed app-heading-small margin-bottom-20 padding-left-0">
-                        <div class="icon icon-lg">
-							<span class="icon-cog">
-							</span>
-                        </div>
-                        <div class="title">
-                            <h2>
-                                Settings
-                            </h2>
-                            <p>
-                                Notification Settings
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_1" checked="" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    Delivery Information
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_2" checked="" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    Product Amount Information
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_3" checked="" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    Order Information
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_4" checked="" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    Server Load
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_5" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    User Registrations
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label class="switch switch-sm margin-0">
-                                    <input type="checkbox" name="app_settings_6" value="0">
-                                </label>
-                            </div>
-                            <div class="col-xs-10">
-                                <label>
-                                    Purchase Information
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END APP SIDEPANEL -->
-            <!-- APP OVERLAY -->
-            <div class="app-overlay">
-            </div>
-            <!-- END APP OVERLAY -->
         </div>
     </div>
 

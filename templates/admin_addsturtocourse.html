@@ -1,0 +1,42 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>添加学生到课程</h2>
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="col-md-10"><label>选择课程名称</label><select class="bs-select" name="course">
+                {% for massage in message.get('messages')[0] %}
+                    <option>{{ massage[0] }}</option>
+                {% endfor %}
+            </select><span class="help-block"></span></div>
+
+            <div class="col-md-10"><label>选择教师名称</label><select class="bs-select" data-live-search="true"
+                                                                name="teacher">
+                {% for massage in message.get('messages')[1] %}
+                    <option>{{ massage[0] }}</option>
+                {% endfor %}
+            </select><span class="help-block"></span></div>
+
+            {% if message.get('messages')[1] %}
+                <div class="col-md-10"><label>选择上课学生</label><select class="multiselect form-control" multiple="multiple"
+                                                                    name="student">
+                    {% for massage in message.get('messages')[2] %}
+                        <option selected="selected">{{ massage }}</option>
+                    {% endfor %}
+                    {% for massage in message.get('messages')[3] %}
+                        <option>{{ massage }}</option>
+                    {% endfor %}
+                </select></div>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="submit">确认提交</button>
+                </div>
+            {% else %}
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="query">查询</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

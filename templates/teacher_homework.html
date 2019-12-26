@@ -1,0 +1,68 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>添加作业名称</h2></div>
+                        {% if message.get('info') %}
+                            <code>{{ message.get('info') }}</code>
+                        {% endif %}
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                            <div class="col-md-12"><select class="form-control" name="course">
+                                {% for msg in message.get('messages') %}
+                                    <option>{{ msg }}</option>
+                                {% endfor %}
+                            </select><span class="help-block"></span></div>
+                        </div>
+                        <p></p>
+                        <div><label class="col-md-2 control-label">设置作业标题</label>
+                            <input type="text" class="form-control" name="title">
+                        </div>
+                        <p></p>
+                        <div><label class="col-md-2 control-label">设置作业内容</label>
+                            <textarea class="form-control" rows="5" name="content"></textarea>
+                        </div>
+                        <p></p>
+                        <div class="form-group"><label class="col-md-2 control-label">设置作业序号</label>
+                            <div class="col-md-12"><select class="form-control" name="homenumber">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                            </select><span class="help-block"></span></div>
+                        </div>
+                        <p></p>
+                        <div><label class="col-md-2 control-label">设置作业截止时间</label>
+                            <input type="date" value="2015-09-24" class="form-control" name="ddl">
+                        </div>
+                        <p></p>
+                        <div class="app-checkbox"><label><input type="checkbox" name="delay" value="1"
+                                                                checked="checked"> 是否允许逾期</label></div>
+                        <p></p>
+                        <input type="file" name="file" placeholder="Upload file" class="dropzone">
+                        <p></p>
+                        <div class="form-group margin-top-20">
+                            <button class="btn btn-default" type="submit">确认添加</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

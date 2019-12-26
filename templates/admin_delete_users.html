@@ -1,0 +1,23 @@
+{% extends "admin_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title"><h2>删除用户</h2>
+                {% if message.get('info') %}
+                    <code>{{ message.get('info') }}</code>
+                {% endif %}
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" novalidat>
+            <div class="col-md-10"><label>选择用户名称</label><select class="bs-select" data-live-search="true"
+                                                                name="name">
+                {% for massage in message.get('messages') %}
+                    <option>{{ massage[0] }}</option>
+                {% endfor %}
+            </select><span class="help-block"></span></div>
+            <div class="form-group margin-top-20">
+                <button class="btn btn-default" type="submit">确认提交</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

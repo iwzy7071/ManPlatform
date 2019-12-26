@@ -1,0 +1,44 @@
+{% extends "student_base.html" %}
+{% block content %}
+    <div class="block">
+        <div class="app-heading app-heading-small">
+            <div class="title">
+                {% if message.get('messages')[1] %}
+                    <h2>上传作业 {{ message.get('messages')[0] }} {{ message.get('messages')[1][0] }}</h2>
+                {% else %}
+                    <h2>上传作业</h2>
+                {% endif %}
+                {% if message.get('info') %}
+                    <code>{{ message.get('info') }}</code>
+                {% endif %}
+            </div>
+        </div>
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+            {% if message.get('messages')[1] %}
+                <div><label class="col-md-2 control-label">设置作业序号</label>
+                    <input type="text" class="form-control" name="homenumber">
+                </div>
+                <div><label class="col-md-2 control-label">设置作业内容</label>
+                    <input name="input" type="text" class="form-control">
+                </div>
+
+                <div class="form-group margin-top-20">
+                    <input type="file" name="file" placeholder="Upload file" class="dropzone">
+                    <button class="btn btn-default" type="submit" name="choose" value="submit">提交</button>
+                </div>
+            {% else %}
+                <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                    <div class="col-md-10"><select class="form-control" name="course">
+                        {% for message in message.get('messages') %}
+                            <option>{{ message }}</option>
+                        {% endfor %}
+                    </select><span class="help-block"></span></div>
+                </div>
+                <p></p>
+                <div class="form-group margin-top-20">
+                    <button class="btn btn-default" type="submit" name="choose" value="query">查询</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

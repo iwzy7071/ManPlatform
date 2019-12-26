@@ -7,9 +7,10 @@ def get_database_cursor():
     return conn.cursor()
 
 
-def addusers(username, identity, password=123456):
+def addusers(username, password, identity, realname):
     cursor = get_database_cursor()
-    sql = "INSERT into User (Name,Password,Type) VALUES ('%s','%s',%s)" % (username, password, identity)
+    sql = "INSERT into User (Name,Password,Type,Realname) VALUES ('%s','%s',%s,'%s')" % (
+        username, password, identity, realname)
     cursor.execute(sql)
 
 
@@ -32,3 +33,22 @@ def findusertype(usertype):
         return 2
     if usertype == "管理员/Admin":
         return 3
+
+
+def selectusers():
+    cursor = get_database_cursor()
+    sql = "SELECT Name FROM User"
+    cursor.execute(sql)
+    return cursor.fetchall()
+
+
+def resetusers(username):
+    cursor = get_database_cursor()
+    sql = "Update User Set Password='123456' where Name = '%s'" % username
+    cursor.execute(sql)
+
+
+def deleteusers(username):
+    cursor = get_database_cursor()
+    sql = "Delete from User where Name = '%s'" % username
+    cursor.execute(sql)

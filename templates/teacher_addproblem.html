@@ -1,0 +1,70 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md"><!-- DEFAULT DROPZONE -->
+                <div class="block">
+                    <div class="app-heading app-heading-small">
+                        <div class="title"><h2>添加课程问题</h2></div>
+                        <p>Add Problem to course
+                            {% if message.get('messages')[0] != '' %}
+                                <code>{{ message.get('messages')[0] }}</code>
+                            {% endif %}</p>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                            <p></p>
+                            <div class="col-md-12"><select class="form-control" name="course">
+                                {% for message in message.get('messages')[1] %}
+                                    <option>{{ message }}</option>
+                                {% endfor %}</select>
+                                <span class="help-block"></span></div>
+                            <p></p>
+                            <div><label class="col-md-2 control-label">设置作业内容</label>
+                                <input type="text" class="form-control" name="content">
+                            </div>
+                            <p></p>
+                            <div><label class="col-md-2 control-label">设置选项A</label>
+                                <input type="text" class="form-control" name="numberA">
+                            </div>
+                            <p></p>
+                            <div><label class="col-md-2 control-label">设置选项B</label>
+                                <input type="text" class="form-control" name="numberB">
+                            </div>
+                            <p></p>
+                            <div><label class="col-md-2 control-label">设置选项C</label>
+                                <input type="text" class="form-control" name="numberC">
+                            </div>
+                            <p></p>
+                            <div><label class="col-md-2 control-label">设置选项D</label>
+                                <input type="text" class="form-control" name="numberD">
+                            </div>
+                            <p></p>
+                            <div class="form-group"><label class="col-md-2 control-label">设置正确选项</label>
+                                <div class="col-md-12"><select class="form-control" name="numberTrue">
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                </select>
+                                    <span class="help-block"></span></div>
+                            </div>
+                            <p></p>
+                            <div class="form-group"><label class="col-md-2 control-label">选择题目KEY</label>
+                                <div class="col-md-12"><select class="form-control" name="keychoose">
+                                    {% for msg in message.get('keys') %}
+                                        <option>{{ msg }}</option>
+                                    {% endfor %}
+                                </select>
+                                    <span class="help-block"></span></div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <button class="btn btn-default" type="submit">确认添加</button>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

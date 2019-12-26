@@ -6,22 +6,32 @@
                 <div class="block">
                     <div class="app-heading app-heading-small">
                         <div class="title"><h2>添加课程安排</h2>
-                            <p>Add teaching plans{% if msg %}
-                                <code>{{ msg }}</code>
+                            <p>Add teaching plans{% if message.get('info') %}
+                                <code>{{ message.get('info') }}</code>
                             {% endif %}</p></div>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 control-label">选择课程名称</label>
+                            <div class="col-md-12"><select class="form-control" name="course">
+                                {% for msg in message.get('messages') %}
+                                    <option>{{ msg }}</option>
+                                {% endfor %}
+                            </select><span class="help-block"></span></div>
+                        </div>
                         <div><label class="col-md-2 control-label">设置安排日期</label>
                             <input type="date" value="2015-09-24" class="form-control" name="plandate">
                         </div>
+                        <p></p>
                         <div><label class="col-md-2 control-label">添加教学标题</label>
                             <input type="text" class="form-control" name="plantitle">
                         </div>
+                        <p></p>
                         <div><label class="col-md-2 control-label">添加教学内容</label>
                             <textarea class="form-control" rows="5" name="plancontent"></textarea>
                         </div>
+                        <p></p>
                         <div class="form-group margin-top-20">
-                            <button class="btn btn-default" type="submit">Submit</button>
+                            <button class="btn btn-default" type="submit">确认添加</button>
                         </div>
 
                     </form>
