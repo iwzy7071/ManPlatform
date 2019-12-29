@@ -171,7 +171,6 @@
                                     </div>
                                     <div class="app-timeline scroll app-timeline-simple text-sm" style="height: 240px">
                                         {% for msg in get_flashed_messages() %}
-                                            {{ msg }}
                                             {% if msg[0] == 0 %}
                                                 <div class="app-timeline-item">
                                                     <div class="dot dot-primary"></div>
